@@ -1,15 +1,19 @@
-<div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+<form [formGroup]="userForm" class="login" autocomplete="false" [class.mat-elevation-z2]="true">
+  <div class="login-container">
+    <div class="login-header">
+      <h1 class="mat-title">Login</h1>
+    </div>
+    <div class="login-form">
+      <mat-form-field class="">
+        <input matInput placeholder="Usuario" formControlName="username">
+        <mat-error *ngIf="userForm.get('username').hasError('required')">Usuario requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="">
+        <input matInput placeholder="Contraseña" formControlName="password">
+        <mat-error *ngIf="userForm.get('password').hasError('required')">Contraseña Requerida</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!userForm.valid">Ingresar</button>
+    </div>
+  </div>
+</form>

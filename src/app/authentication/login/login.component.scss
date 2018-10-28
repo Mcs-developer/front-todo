@@ -1,8 +1,23 @@
-.example-container {
+@import '~@angular/material/theming';
+
+$primary: mat-palette($mat-indigo);
+$color-text-title: mat-palette($mat-indigo, 50);
+.login {
+  max-width: 500px;
+  margin: 0 auto;
+  &-container {
+  }
+  &-header {
+    padding: 10px;
+    color: mat-color($color-text-title);
+    background-color: mat-color($primary);
+    h1 {
+      margin: 0;
+    }
+  }
+  &-form {
     display: flex;
     flex-direction: column;
+    padding: 10px;
   }
-  
-  .example-container > * {
-    width: 100%;
-  }
+}

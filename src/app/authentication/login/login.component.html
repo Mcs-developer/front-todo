@@ -1,19 +1,31 @@
-<form [formGroup]="userForm" class="login" autocomplete="false" [class.mat-elevation-z2]="true">
-  <div class="login-container">
-    <div class="login-header">
-      <h1 class="mat-title">Login</h1>
+<div class="login">
+  <form [formGroup]="userForm" 
+        class="login-form" 
+        autocomplete="false" 
+        [class.mat-elevation-z2]="true"
+        (ngSubmit)="submit(userForm.value)">
+    <div>
+      <div class="login-form__header">
+        <h1 class="mat-title">Login</h1>
+      </div>
+      <div class="login-form__fields">
+        <mat-form-field class="">
+          <input matInput placeholder="Usuario" formControlName="username" />
+          <mat-error *ngIf="userForm.get('username').hasError('required')">
+            Usuario requerido
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="">
+          <input matInput placeholder="Contraseña" formControlName="password" />
+          <mat-error *ngIf="userForm.get('password').hasError('required')">
+            Contraseña Requerida
+          </mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!userForm.valid">
+          Ingresar
+        </button>
+      </div>
     </div>
-    <div class="login-form">
-      <mat-form-field class="">
-        <input matInput placeholder="Usuario" formControlName="username">
-        <mat-error *ngIf="userForm.get('username').hasError('required')">Usuario requerido</mat-error>
-      </mat-form-field>
-  
-      <mat-form-field class="">
-        <input matInput placeholder="Contraseña" formControlName="password">
-        <mat-error *ngIf="userForm.get('password').hasError('required')">Contraseña Requerida</mat-error>
-      </mat-form-field>
-      <button type="submit" mat-raised-button color="primary" [disabled]="!userForm.valid">Ingresar</button>
-    </div>
-  </div>
-</form>
+  </form>
+  <pre>{{userForm.value | json}}</pre>
+</div>

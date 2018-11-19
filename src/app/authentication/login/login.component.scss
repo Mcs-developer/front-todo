@@ -2,12 +2,11 @@
 
 $primary: mat-palette($mat-indigo);
 $color-text-title: mat-palette($mat-indigo, 50);
-.login {
+
+.login-form {
   max-width: 500px;
   margin: 0 auto;
-  &-container {
-  }
-  &-header {
+  &__header {
     padding: 10px;
     color: mat-color($color-text-title);
     background-color: mat-color($primary);
@@ -15,7 +14,7 @@ $color-text-title: mat-palette($mat-indigo, 50);
       margin: 0;
     }
   }
-  &-form {
+  &__fields {
     display: flex;
     flex-direction: column;
     padding: 10px;

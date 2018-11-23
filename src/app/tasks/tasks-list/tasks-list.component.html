@@ -1,3 +1,24 @@
-<p>
-  tasks-list works!
-</p>
+<div class="task-list">
+  <div>
+    <div *ngIf="tasks; else: emptyBlock" class="task-list__wrapper">
+      <mat-card *ngFor="let task of tasks"
+                class="task-list__card">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur
+        malesuada ipsum, sed vulputate arcu vestibulum eu. Nunc ex velit,
+        egestas quis sodales ut, lobortis venenatis nulla.
+      </mat-card>
+    </div>
+
+    <ng-template #emptyBlock>
+      <div class="task-list__empty">
+        <mat-icon class="task-list__empty_size-icon">view_list</mat-icon>
+        <h1 class="mat-title">Aquí vas a ver tus tareas</h1>
+      </div>
+    </ng-template>
+  </div>
+  <button mat-fab color="accent" class="task-list__button-add">
+        <mat-icon aria-label="">add</mat-icon>
+  </button>
+</div>
+
+
